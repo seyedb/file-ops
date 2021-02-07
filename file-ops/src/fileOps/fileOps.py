@@ -1,7 +1,16 @@
 #
 
 def getLine(fname, lnumber):
-    """ function to jump to a line number in a file and read a line """
+    """ 
+    function to jump to a line number in a file and read a line.
+
+    args: 
+        fname   (str): file's name
+        lnumber (int): line number
+    retunrs:
+        (str) string containing the contents of the lnumber'th line 
+    """
+
     if lnumber <= 0:
         print("Error: Invalid line number!")
         return
