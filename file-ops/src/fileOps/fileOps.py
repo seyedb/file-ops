@@ -8,12 +8,11 @@ def getLine(fname, lnumber):
     function to jump to a line number in a file and read a line.
 
     args: 
-        fname   (str): file's name
+        fname   (str): path to the input file
         lnumber (int): line number
     retunrs:
         (str) string containing the contents of the lnumber'th line 
     """
-
     if lnumber <= 0:
         print("Error: Invalid line number!")
         return
@@ -29,10 +28,10 @@ def getLine(fname, lnumber):
 
 def findPattern(fin, pattern):
     """
-    function to read a large file and find lines that match a criteria
+    function to read a large file and find lines that match a criteria.
 
     args:
-        fin     (str): file's name
+        fin     (str): path to the input file
         pattern (str): regex pattern to be matched (ex: r'<title.*>(.*)<\/title>' to search fir titles in an xml file)
     returns:
         (list) list of matches found
@@ -47,4 +46,26 @@ def findPattern(fin, pattern):
             print("EOF reached.")
 
     return matchlist
+
+
+def matchToFile(fin, pattern, fout):
+    """
+    function to find lines that match a criteria and write them to another file.
+
+    args:
+        fin     (str): path to the input file
+        pattern (str): regex pattern to be matched (ex: r'<title.*>(.*)<\/title>' to search fir titles in an xml file)
+        fout    (str): path to the output file
+    returns:
+        (file obj) fout filled in with all the lines from fin that contain a match of the pattern (regex)
+    """
+    with open(fin, "r") as fid:
+        for i, line in enumerate(fid, start=1):
+            matches = re.findall(pattern, line)
+            if len(matches) > 0:
+                fout.write(line)
+        else:
+            print("EOF reached.")
+
+    fout.close()
 
