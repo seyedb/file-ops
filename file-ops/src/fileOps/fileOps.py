@@ -85,3 +85,19 @@ def jsonToDict(json_file):
         dout = json.loads(fid.read())
 
     return dout
+
+
+class loaded_json(object):
+    """
+    a class containing data loaded from an input JSON file.
+
+    usage:
+        jsondata = loaded_json(file_path)
+
+    TODO: make the class iterable.
+    """
+    def __init__(self, json_file):
+        with open(json_file, "r") as fid:
+            self.__dict__ = json.loads(fid.read())
+
+
