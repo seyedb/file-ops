@@ -1,7 +1,9 @@
 #
 import re
+import json
 
 from re import findall
+from json import loads
 
 def getLine(fname, lnumber):
     """ 
@@ -69,3 +71,17 @@ def matchToFile(fin, pattern, fout):
 
     fout.close()
 
+
+def jsonToDict(json_file):
+    """
+    function to read in a JSON file and convert it into a distionary.
+
+    args:
+        json_file (str): path to the input file
+    returns:
+        (dict) a dictionary containg the data from the input JSON file
+    """
+    with open(json_file, "r") as fid:
+        dout = json.loads(fid.read())
+
+    return dout
