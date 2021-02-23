@@ -7,10 +7,10 @@ from json import loads
 
 def getLine(fname, lnumber):
     """ 
-    function to jump to a line number in a file and read a line.
+    Function to jump to a line number in a file and read a line.
 
     args: 
-        fname   (str): path to the input file
+        fname (str): path to the input file
         lnumber (int): line number
     retunrs:
         (str) string containing the contents of the lnumber'th line 
@@ -30,10 +30,10 @@ def getLine(fname, lnumber):
 
 def findPattern(fin, pattern):
     """
-    function to read a large file and find lines that match a criteria.
+    Function to read a large file and find lines that match a criteria.
 
     args:
-        fin     (str): path to the input file
+        fin (str): path to the input file
         pattern (str): regex pattern to be matched (ex: r'<title.*>(.*)<\/title>' to search fir titles in an xml file)
     returns:
         (list) list of matches found
@@ -52,12 +52,12 @@ def findPattern(fin, pattern):
 
 def matchToFile(fin, pattern, fout):
     """
-    function to find lines that match a criteria and write them to another file.
+    Function to find lines that match a criteria and write them to another file.
 
     args:
-        fin     (str): path to the input file
+        fin (str): path to the input file
         pattern (str): regex pattern to be matched (ex: r'<title.*>(.*)<\/title>' to search fir titles in an xml file)
-        fout    (str): path to the output file
+        fout (str): path to the output file
     returns:
         (file obj) fout filled in with all the lines from fin that contain a match of the pattern (regex)
     """
@@ -74,7 +74,7 @@ def matchToFile(fin, pattern, fout):
 
 def jsonToDict(json_file):
     """
-    function to read in a JSON file and convert it into a distionary.
+    Function to read in a JSON file and convert it into a distionary.
 
     args:
         json_file (str): path to the input file
@@ -89,7 +89,7 @@ def jsonToDict(json_file):
 
 class loaded_json(object):
     """
-    a class containing data loaded from an input JSON file.
+    Class containing data loaded from an input JSON file.
 
     usage:
         jsondata = loaded_json(file_path)
