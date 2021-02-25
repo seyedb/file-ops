@@ -24,7 +24,6 @@ def getLine(fname, lnumber):
         else:
             print("Error: EOF reached!")
 
-
 def findPattern(fin, pattern):
     """
     Function to read a large file and find lines that match a criteria.
@@ -46,7 +45,6 @@ def findPattern(fin, pattern):
 
     return matchlist
 
-
 def matchToFile(fin, pattern, fout):
     """
     Function to find lines that match a criteria and write them to another file.
@@ -58,16 +56,16 @@ def matchToFile(fin, pattern, fout):
     returns:
         (file obj) fout filled in with all the lines from fin that contain a match of the pattern (regex)
     """
-    with open(fin, "r") as fid:
-        for i, line in enumerate(fid, start=1):
+    fout_id = open(fout, "w")
+    with open(fin, "r") as fin_id:
+        for i, line in enumerate(fin_id, start=1):
             matches = re.findall(pattern, line)
             if len(matches) > 0:
-                fout.write(line)
+                fout_id.write(line)
         else:
             print("EOF reached.")
 
-    fout.close()
-
+    fout_id.close()
 
 def jsonToDict(json_file):
     """
@@ -82,7 +80,6 @@ def jsonToDict(json_file):
         dout = json.loads(fid.read())
 
     return dout
-
 
 class loaded_json(object):
     """
