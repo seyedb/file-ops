@@ -19,7 +19,7 @@ def getLine(fname, lnumber):
     with open(fname, "r") as fid:
         for i, line in enumerate(fid, start=1):
             if i == lnumber:
-                print(line)
+                return line
                 break
         else:
             print("Error: EOF reached!")
