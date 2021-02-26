@@ -24,6 +24,23 @@ def getLine(fname, lnumber):
         else:
             print("Error: EOF reached!")
 
+def addLineNumber(fin, fout):
+    """
+    Reads a file and writes every line of the file to another file with line number added 
+
+    args: 
+        fin (str): path to the input file
+    returns:
+        (file obj) fout same as fin but with line numbers
+    """
+    fout_id = open(fout, "w")
+
+    with open(fin, "r") as fin_id:
+        for i, line in enumerate(fin_id, start=1):
+            fout_id.write("%d  %s" % (i, line))
+
+    fout_id.close()
+
 def findPattern(fin, pattern):
     """
     Function to read a large file and find lines that match a criteria.
