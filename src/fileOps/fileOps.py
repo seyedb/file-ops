@@ -74,6 +74,7 @@ def getLine_binarysearch(fname, lnumber):
     right = os.path.getsize(fname) # interval of bytes
     mid = 0
 
+    sol = None
     while left <= right:
         mid = (left + right)//2
 
@@ -91,10 +92,11 @@ def getLine_binarysearch(fname, lnumber):
         elif lnumber < ln:
             right = mid - 1
         else:
+            sol = " ".join(line.split()[1:])
             break
 
     fid.close()
-    return " ".join(line.split()[1:])
+    return sol
 
 def findPattern(fin, pattern):
     """
