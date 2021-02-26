@@ -76,7 +76,7 @@ def getLine_binarysearch(fname, lnumber):
 
     sol = None
     while left <= right:
-        mid = (left + right)//2
+        mid = left + (right - left)//2
 
         # move the pinter to the offset mid
         fid.seek(mid)
