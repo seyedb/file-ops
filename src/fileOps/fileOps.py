@@ -1,4 +1,8 @@
 #
+import os
+import sys
+import fileinput
+
 from re import findall
 from json import loads
 
@@ -40,6 +44,18 @@ def addLineNumber(fin, fout):
             fout_id.write("%d  %s" % (i, line))
 
     fout_id.close()
+
+def addLineNumber_inplace(fins):
+    """
+    Reads a file and adds line numbers to every line in place
+
+    args:
+        fins (tuple of str): paths to the input files to be edited
+    returns:
+        (file objs) every file in with line numbers added to their lines
+    """
+    for line in fileinput.input(files=fins, inplace=True):
+        sys.stdout.write('%d %s' % (fileinput.filelineno(), line))
 
 def findPattern(fin, pattern):
     """
