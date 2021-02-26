@@ -57,6 +57,45 @@ def addLineNumber_inplace(fins):
     for line in fileinput.input(files=fins, inplace=True):
         sys.stdout.write('%d %s' % (fileinput.filelineno(), line))
 
+def getLine_binarysearch(fname, lnumber):
+    """
+    Function to jump to a line number in a file and read that line. 
+    NOTE: uses a binary search approach to find the line number, therefore, the file needs to have line numbers
+
+    args:
+        fname (str): path to the input file that has line numbers
+        lnumber (int): line number
+    retunrs:
+        (str) string containing the contents of the lnumber'th line 
+    """
+    fid = open(fname, "r")
+
+    left = 0
+    right = os.path.getsize(fname) # interval of bytes
+    mid = 0
+
+    while left <= right:
+        mid = (left + right)//2
+
+        # move the pinter to the offset mid
+        fid.seek(mid)
+        # wherever we are, go to the end of the line, after this the pointer is moved to
+        # the beginning of the next line
+        fid.readline()
+        # read the entire line
+        line = fid.readline()
+        ln = int(line.split()[0])
+
+        if lnumber > ln:
+            left = mid + 1
+        elif lnumber < ln:
+            right = mid - 1
+        else:
+            break
+
+    fid.close()
+    return " ".join(line.split()[1:])
+
 def findPattern(fin, pattern):
     """
     Function to read a large file and find lines that match a criteria.
