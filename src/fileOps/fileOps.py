@@ -41,7 +41,7 @@ def addLineNumber(fin, fout):
 
     with open(fin, "r") as fin_id:
         for i, line in enumerate(fin_id, start=1):
-            fout_id.write("%d  %s" % (i, line))
+            fout_id.write("%d %s" % (i, line))
 
     fout_id.close()
 
