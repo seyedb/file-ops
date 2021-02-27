@@ -93,7 +93,8 @@ def getLine_binarysearch(fname, lnumber):
             right = mid - 1
         else:
             sol = " ".join(line.split()[1:])
-            break
+            fid.close()
+            return sol
 
     fid.close()
     return sol
