@@ -61,6 +61,7 @@ def getLine_binarysearch(fname, lnumber):
     """
     Function to jump to a line number in a file and read that line. 
     NOTE: uses a binary search approach to find the line number, therefore, the file needs to have line numbers
+          use addLineNumber or addLineNumber_inplace to create such a file
 
     args:
         fname (str): path to the input file that has line numbers
@@ -87,7 +88,11 @@ def getLine_binarysearch(fname, lnumber):
 
         # step 3: read the entire line
         line = fid.readline()
-        ln = int(line.split()[0])
+        try:
+            ln = int(line.split()[0])
+        except IndexError:
+            print("Error: line has no line number or EOF reached!")
+            break
 
         if lnumber > ln:
             left = mid + 1
