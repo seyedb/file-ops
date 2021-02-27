@@ -78,12 +78,14 @@ def getLine_binarysearch(fname, lnumber):
     while left <= right:
         mid = left + (right - left)//2
 
-        # move the pinter to the offset mid
+        # step 1: move the pinter to the offset mid
         fid.seek(mid)
-        # wherever we are, go to the end of the line, after this the pointer is moved to
-        # the beginning of the next line
+
+        # step 2: wherever we are, go to the end of the line, after this the pointer is moved to
+        #         the beginning of the next line
         fid.readline()
-        # read the entire line
+
+        # step 3: read the entire line
         line = fid.readline()
         ln = int(line.split()[0])
 
@@ -95,6 +97,17 @@ def getLine_binarysearch(fname, lnumber):
             sol = " ".join(line.split()[1:])
             fid.close()
             return sol
+
+    # since in step 3 the pointer is moved to the beginning of the next line, binary search will
+    # never find the first line, here is a workaround:
+    if abs(right - lnumber) < abs(left - lnumber):
+        fid.seek(right)
+        rline = fid.readline()
+        sol = " ".join(rline.split()[1:])
+    else:
+        fid.seek(left)
+        lline = fid.readline()
+        sol = " ".join(lline.split()[1:])
 
     fid.close()
     return sol
