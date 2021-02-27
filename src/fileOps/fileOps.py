@@ -99,7 +99,7 @@ def getLine_binarysearch(fname, lnumber):
         elif lnumber < ln:
             right = mid - 1
         else:
-            sol = " ".join(line.split()[1:])
+            sol = line.partition(" ")[2]
             fid.close()
             return sol
 
@@ -108,11 +108,11 @@ def getLine_binarysearch(fname, lnumber):
     if abs(right - lnumber) < abs(left - lnumber):
         fid.seek(right)
         rline = fid.readline()
-        sol = " ".join(rline.split()[1:])
+        sol = rline.partition(" ")[2]
     else:
         fid.seek(left)
         lline = fid.readline()
-        sol = " ".join(lline.split()[1:])
+        sol = lline.partition(" ")[2]
 
     fid.close()
     return sol
