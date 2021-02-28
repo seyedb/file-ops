@@ -69,7 +69,7 @@ def getLine_binarysearch(fname, lnumber):
     retunrs:
         (str) string containing the contents of the lnumber'th line 
     """
-    fid = open(fname, "r")
+    fid = open(fname, "r", errors="replace")
 
     left = 0
     right = os.path.getsize(fname) # interval of bytes
