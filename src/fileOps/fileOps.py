@@ -79,14 +79,12 @@ def getLine_binarysearch(fname, lnumber):
     while left <= right:
         mid = left + (right - left)//2
 
-        # step 1: move the pinter to the offset mid
+        # Step 1: move the pinter to the offset mid
         fid.seek(mid)
-
-        # step 2: wherever we are, go to the end of the line, after this the pointer is moved to
-        #         the beginning of the next line
+        # Step 2: wherever we are, go to the end of the line
         fid.readline()
-
-        # step 3: read the entire line
+        # The pointer is now moved to the beginning of the next line
+        # Step 3: read the entire line
         line = fid.readline()
         try:
             ln = int(line.split()[0])
