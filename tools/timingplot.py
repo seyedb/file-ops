@@ -39,7 +39,7 @@ trace1fit = {'x': lin_nums,
           'name': 'getLine LOWESS fit',
           'mode': 'lines',
           'type': 'scatter',
-          'marker': {'color': 'gray'},
+          'marker': {'color': 'midnightblue'},
           'showlegend': True}
 
 trace2fit = {'x': lin_nums, 
@@ -48,7 +48,7 @@ trace2fit = {'x': lin_nums,
           'name': 'getLine_binarysreach LOWESS fit',
           'mode': 'lines',
           'type': 'scatter',
-          'marker': {'color': 'gray'},
+          'marker': {'color': 'crimson'},
           'showlegend': True}
 
 layout = go.Layout({
