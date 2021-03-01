@@ -1,5 +1,6 @@
-File Operations
----------------
+## File Operations
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
+
 Python scripts to perform the following file operations:
 * Jump to a line number in a file and read a line.
 * Read a large file as a stream of lines and filter only the lines that match a criteria.
