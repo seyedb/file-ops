@@ -3,6 +3,10 @@ import pandas as pd
 import plotly.graph_objects as go
 import plotly.express as px
 
+# creat auxiliary files for plotting:
+# paste ../data/lnumbers.txt ../data/getline_time.txt > ../data/getline.txt 
+# paste ../data/lnumbers.txt ../data/getline_binsrch_time.txt > ../data/getline_binsrch.txt 
+
 df = pd.read_table('../data/getline.txt', names=['line number', 'time'])
 df_binsrch = pd.read_table('../data/getline_binsrch.txt', names=['line number', 'time'])
 
