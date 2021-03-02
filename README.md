@@ -19,3 +19,12 @@ Reading a line at a given line number:<br />
 `getline` from the `linecache` module is not practical for large files.<br />
 `getLine` uses `enumerate()` to read the file line-by-line.<br />
 `getLine_binarysearch` searches for the given line number using binary search. The input file must have line numbers.
+
+<div class="row">
+  <div class="column">
+    <img src=./data/gL.png width="47%" height="47%">
+  </div>
+  <div class="column">
+    <img src=./data/gLbinsrch.png width="48%" height="48%">
+  </div>
+</div>
