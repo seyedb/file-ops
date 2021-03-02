@@ -17,7 +17,7 @@ The following timings have been obtained by reading a wikimedia abstracts dump f
 
 * Reading a line at a given line number:<br />
 `getline` from the `linecache` module is not practical for large files.<br />
-`getLine` uses `enumerate()` to read the file line-by-line.<br />
+`getLine` uses `enumerate()` to read the file line-by-line until it reaches the target line number.<br />
 `getLine_binarysearch` searches for the given line number using binary search. The input file must have line numbers.<br />
 
 Use `./tools/timingplot.py` to generate an interactive plotly plot. The timing data can be found at: `./data/`
