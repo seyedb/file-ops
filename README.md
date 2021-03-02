@@ -22,6 +22,5 @@ The following timings have been obtained by reading a wikimedia abstracts dump f
 
 Use `./tools/timingplot.py` to generate an interactive plotly plot. The timing data can be found at: `./data/`
 
-<img src=./data/gL.png width="50%" height="50%">
-<img src=./data/gLbinsrch.png width="50%" height="50%">
+<img src=./data/timingfig.png width="90%" height="90%">
 
