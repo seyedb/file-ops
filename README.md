@@ -16,15 +16,18 @@ Adding line numbers to the file:<br />
 `addLineNumber_inplace  : 103.272668963 s`
 
 Reading a line at a given line number:<br />
+Use `./tools/timingplot.py` to generate an interactive plotly plot. The timing data can be found at: `./data/`
+
 `getline` from the `linecache` module is not practical for large files.<br />
 `getLine` uses `enumerate()` to read the file line-by-line.<br />
 `getLine_binarysearch` searches for the given line number using binary search. The input file must have line numbers.
 
 <div class="row">
   <div class="column">
-    <img src=./data/gL.png width="47%" height="47%">
+    <img src=./data/gL.png width="45%" height="45%">
   </div>
   <div class="column">
-    <img src=./data/gLbinsrch.png width="48%" height="48%">
+    <img src=./data/gLbinsrch.png width="46%" height="46%">
   </div>
 </div>
+
