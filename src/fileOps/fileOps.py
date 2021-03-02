@@ -2,6 +2,7 @@
 import os
 import sys
 import fileinput
+import numpy as np
 
 from re import findall
 from json import loads
