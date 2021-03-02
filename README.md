@@ -9,4 +9,9 @@ Python scripts to perform the following file operations:
 
 
 ### Timing Results
-The following timings have been obtained by reading a wikimedia abstracts dump file (an xml file of size 5.8GB with almost 75.6M lines - can be downloaded [here](https://dumps.wikimedia.org/enwiki/latest/)). 
+The following timings have been obtained by reading a wikimedia abstracts dump file (an xml file of size 5.8GB with almost 75.6M lines - the file can be downloaded from [here](https://dumps.wikimedia.org/enwiki/latest/)). 
+
+Adding line numbers to the file:
+
+`addLineNumber : 58.024850428 s` <br />
+`addLineNumber_inplace  : 103.272668963 s`
