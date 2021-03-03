@@ -3,6 +3,7 @@
 import fileOps as fo
 import numpy as np
 from collections import Counter
+import filecmp
 
 def test_getLine():
     refline = "JAQUES\tAll the world's a stage,\n"
