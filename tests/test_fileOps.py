@@ -62,4 +62,16 @@ def test_findPattern():
     reference = Counter({'ACT I': 3, 'ACT II': 7, 'ACT III': 5, 'ACT IV': 3, 'ACT V': 4})
     assert Counter(matchlist) == reference
 
+def test_matchToFile():
+    fin = "../data/shakespeare.txt"
+    fout = "../data/shakespeare-match.txt"
+
+    # fref is created via:
+    # > grep "ACT" ../data/shakespeare.txt > ../data/shakespeare-matchref.txt
+    fref = "../data/shakespeare-matchref.txt"
+
+    pattern = "^ACT.*"
+
+    fo.matchToFile(fin, pattern, fout)
+    assert filecmp.cmp(fout, fref)
 
