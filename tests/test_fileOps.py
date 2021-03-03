@@ -2,6 +2,7 @@
 
 import fileOps as fo
 import numpy as np
+from collections import Counter
 
 def test_getLine():
     refline = "JAQUES\tAll the world's a stage,\n"
@@ -52,3 +53,13 @@ def test_getLine_binarysearch():
 
     result = line.partition("\t")[2].rstrip()
     assert result == reference
+
+def test_findPattern():
+    fin = "../data/shakespeare.txt"
+    pattern = "^ACT.*"
+
+    matchlist = fo.findPattern(fin, pattern)
+    reference = Counter({'ACT I': 3, 'ACT II': 7, 'ACT III': 5, 'ACT IV': 3, 'ACT V': 4})
+    assert Counter(matchlist) == reference
+
+
