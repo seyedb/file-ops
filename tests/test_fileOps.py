@@ -4,6 +4,8 @@ import fileOps as fo
 import numpy as np
 from collections import Counter
 import filecmp
+import pickle
+import deepdiff
 
 def test_getLine():
     refline = "JAQUES\tAll the world's a stage,\n"
@@ -75,4 +77,20 @@ def test_matchToFile():
 
     fo.matchToFile(fin, pattern, fout)
     assert filecmp.cmp(fout, fref)
+
+def test_jsonToDict():
+    json_file = "../data/exoplanets.json"
+    exoplanets = fo.jsonToDict(json_file)
+
+    # reference dictionary has been stored in a binary format using:
+#    with open("../data/exoplanets.pkl", "wb") as fdict:
+#        pickle.dump(exoplanets, fdict, pickle.HIGHEST_PROTOCOL)
+
+    refdict = {}
+    with open("../data/exoplanets.pkl", "rb") as fdict:
+        refdict = pickle.load(fdict)
+
+    diff = deepdiff.DeepDiff(exoplanets, refdict)
+    # the diff must be an empty dictionary
+    assert not diff
 
