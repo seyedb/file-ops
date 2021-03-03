@@ -122,7 +122,7 @@ def getLine_binarysearch(fname, lnumber):
 
 def findPattern(fin, pattern):
     """
-    Function to read a large file and find lines that match a criteria.
+    Function to read a large file and find lines that match some criteria.
 
     args:
         fin (str): path to the input file
@@ -143,7 +143,7 @@ def findPattern(fin, pattern):
 
 def matchToFile(fin, pattern, fout):
     """
-    Function to find lines that match a criteria and write them to another file.
+    Function to find lines that match some criteria and write them to another file.
 
     args:
         fin (str): path to the input file
@@ -165,7 +165,7 @@ def matchToFile(fin, pattern, fout):
 
 def jsonToDict(json_file):
     """
-    Function to read in a JSON file and convert it into a distionary.
+    Function to read in a JSON file and convert it into a dictionary.
 
     args:
         json_file (str): path to the input file
