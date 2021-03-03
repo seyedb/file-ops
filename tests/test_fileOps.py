@@ -41,3 +41,14 @@ def test_addLineNumber_inplace():
     line = fo.getLine(fin_wln_inplace, lnumber)
     ln = int(line.split()[0])
     assert ln == lnumber
+
+def test_getLine_binarysearch():
+    refline = "JAQUES\tAll the world's a stage,\n"
+    reference = "All the world's a stage,"
+
+    fname = "../data/shakespeare-wln.txt"
+    lnumber = 1660
+    line = fo.getLine_binarysearch(fname, lnumber)
+
+    result = line.partition("\t")[2].rstrip()
+    assert result == reference
