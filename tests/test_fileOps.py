@@ -1,4 +1,4 @@
-# these tests are desigend for pytest framework
+# these tests are designed for pytest framework
 
 import fileOps as fo
 import numpy as np
