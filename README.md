@@ -26,4 +26,4 @@ Use `./tools/timingplot.py` to generate an interactive plotly plot. The timing d
 
 **Testing Data**<br />
 `./data/shakespeare.txt` : "As You Like It" by William Shakespeare.<br />
-`./data/exoplanets.json` : list of potentially habitable exoplanets, source: [Wikipedia page](https://en.wikipedia.org/wiki/List_of_potentially_habitable_exoplanets) (accessed: Mar. 2021), table converted into a `.json` file. 
+`./data/exoplanets.json` : list of potentially habitable exoplanets, source: [Wikipedia](https://en.wikipedia.org/wiki/List_of_potentially_habitable_exoplanets) (accessed: Mar. 2021), table converted into a `.json` file. 
