@@ -1,6 +1,9 @@
 # these tests are designed for pytest framework
 
 import fileOps as fo
+
+import pytest
+
 import numpy as np
 from collections import Counter
 import filecmp
@@ -94,3 +97,12 @@ def test_jsonToDict():
     # the diff must be an empty dictionary
     assert not diff
 
+def test_init_loaded_json():
+    refdict = {}
+    with open("../data/exoplanets.pkl", "rb") as fdict:
+        refdict = pickle.load(fdict)
+
+    jsondata = fo.loaded_json("../data/exoplanets.json")
+
+    diff = deepdiff.DeepDiff(jsondata.__dict__, refdict)
+    assert not diff
