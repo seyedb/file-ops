@@ -9,7 +9,7 @@ Python scripts to perform the following file operations:
 
 
 ### Timing Results
-The following timings have been obtained by reading a Wikimedia abstracts dump file (an xml file of size 5.8GB with almost 75.6M lines - the file can be downloaded from [here](https://dumps.wikimedia.org/enwiki/latest/)). 
+The following timings have been obtained by reading a Wikimedia abstracts dump file (an `.xml` file of size 5.8GB with almost 75.6M lines - the file can be downloaded from [here](https://dumps.wikimedia.org/enwiki/latest/)). 
 
 * Adding line numbers to the file:<br />
 `addLineNumber : 58.024850428 s`<br />
@@ -25,5 +25,5 @@ Use `./tools/timingplot.py` to generate an interactive plotly plot. The timing d
 <img src=./data/timingfig.png width="90%" height="90%">
 
 **Testing Data**<br />
-[`shakespeare.txt`](./data/shakespeare.txt) : "*As You Like It*" by William Shakespeare.<br />
+[`shakespeare.txt`](./data/shakespeare.txt) : *"As You Like It"* by William Shakespeare.<br />
 [`exoplanets.json`](./data/exoplanets.json) : list of potentially habitable exoplanets, source: [Wikipedia](https://en.wikipedia.org/wiki/List_of_potentially_habitable_exoplanets) (accessed: Mar. 2021), table converted into a `.json` file. 
