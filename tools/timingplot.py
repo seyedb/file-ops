@@ -20,7 +20,6 @@ trace1 = {'x': lin_nums,
           'type': 'scatter',
           'name': 'getLine',
           'mode': 'markers',
-          'type': 'scatter',
           'showlegend': True}
 
 trace2 = {'x': lin_nums, 
@@ -28,7 +27,6 @@ trace2 = {'x': lin_nums,
           'type': 'scatter',
           'name': 'getLine_binarysearch',
           'mode': 'markers',
-          'type': 'scatter',
           'showlegend': True}
 
 trend = px.scatter(df, x='line number', y='time', trendline='lowess')
@@ -42,7 +40,6 @@ trace1fit = {'x': lin_nums,
           'type': 'scatter',
           'name': 'getLine LOWESS fit',
           'mode': 'lines',
-          'type': 'scatter',
           'marker': {'color': 'midnightblue'},
           'showlegend': True}
 
@@ -51,7 +48,6 @@ trace2fit = {'x': lin_nums,
           'type': 'scatter',
           'name': 'getLine_binarysreach LOWESS fit',
           'mode': 'lines',
-          'type': 'scatter',
           'marker': {'color': 'crimson'},
           'showlegend': True}
 
