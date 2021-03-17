@@ -38,6 +38,7 @@ def addLineNumber(fin, fout):
 
     args: 
         fin (str): path to the input file
+        fout (str): path to the output file
     returns:
         (file obj) fout same as fin but with line numbers
     '''
