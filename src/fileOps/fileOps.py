@@ -13,15 +13,14 @@ from json import loads
 import timeit
 
 def getLine(fname, lnumber):
-    """ 
-    Function to jump to a line number in a file and read a line.
+    '''Function to jump to a line number in a file and read a line.
 
     args: 
         fname (str): path to the input file
         lnumber (int): line number
     retunrs:
         (str) string containing the contents of the lnumber'th line 
-    """
+    '''
     if lnumber <= 0:
         print("Error: Invalid line number!")
         return
@@ -35,14 +34,13 @@ def getLine(fname, lnumber):
             print("Error: EOF reached!")
 
 def addLineNumber(fin, fout):
-    """
-    Reads a file and writes every line of the file to another file with line number added 
+    '''Reads a file and writes every line of the file to another file with line number added 
 
     args: 
         fin (str): path to the input file
     returns:
         (file obj) fout same as fin but with line numbers
-    """
+    '''
     fout_id = open(fout, "w")
 
     with open(fin, "r") as fin_id:
@@ -52,20 +50,18 @@ def addLineNumber(fin, fout):
     fout_id.close()
 
 def addLineNumber_inplace(fins):
-    """
-    Reads a collection of files and adds line numbers to every line of those files in place
+    '''Reads a collection of files and adds line numbers to every line of those files in place
 
     args:
         fins (tuple of str): paths to the input files to be edited
     returns:
         (file objs) every file in fins with line numbers added to their lines
-    """
+    '''
     for line in fileinput.input(files=fins, inplace=True):
         sys.stdout.write('%d %s' % (fileinput.filelineno(), line))
 
 def getLine_binarysearch(fname, lnumber):
-    """
-    Function to jump to a line number in a file and read that line. 
+    '''Function to jump to a line number in a file and read that line. 
     NOTE: uses a binary search approach to find the line number, therefore, the file needs to have line numbers
           use addLineNumber or addLineNumber_inplace to create such a file
 
@@ -74,7 +70,7 @@ def getLine_binarysearch(fname, lnumber):
         lnumber (int): line number
     retunrs:
         (str) string containing the contents of the lnumber'th line 
-    """
+    '''
     fid = open(fname, "r", errors="replace")
 
     left = 0
@@ -122,15 +118,14 @@ def getLine_binarysearch(fname, lnumber):
     return sol
 
 def findPattern(fin, pattern):
-    """
-    Function to read a large file and find lines that match some criteria.
+    '''Function to read a large file and find lines that match some criteria.
 
     args:
         fin (str): path to the input file
         pattern (str): regex pattern to be matched (ex: r'<title.*>(.*)<\/title>' to search fir titles in an xml file)
     returns:
         (list) list of matches found
-    """
+    '''
     matchlist = []
     with open(fin, "r") as fid:
         for i, line in enumerate(fid, start=1):
@@ -143,8 +138,7 @@ def findPattern(fin, pattern):
     return matchlist
 
 def matchToFile(fin, pattern, fout):
-    """
-    Function to find lines that match some criteria and write them to another file.
+    '''Function to find lines that match some criteria and write them to another file.
 
     args:
         fin (str): path to the input file
@@ -152,7 +146,7 @@ def matchToFile(fin, pattern, fout):
         fout (str): path to the output file
     returns:
         (file obj) fout filled in with all the lines from fin that contain a match of the pattern (regex)
-    """
+    '''
     fout_id = open(fout, "w")
     with open(fin, "r") as fin_id:
         for i, line in enumerate(fin_id, start=1):
@@ -165,41 +159,38 @@ def matchToFile(fin, pattern, fout):
     fout_id.close()
 
 def jsonToDict(json_file):
-    """
-    Function to read in a JSON file and convert it into a dictionary.
+    '''Function to read in a JSON file and convert it into a dictionary.
 
     args:
         json_file (str): path to the input file
     returns:
         (dict) a dictionary containg the data from the input JSON file
-    """
+    '''
     with open(json_file, "r") as fid:
         dout = json.loads(fid.read())
 
     return dout
 
 class loaded_json(object):
-    """
-    Class containing data loaded from an input JSON file.
+    '''Class containing data loaded from an input JSON file.
 
     usage:
         jsondata = loaded_json(file_path)
 
     TODO: make the class iterable.
-    """
+    '''
     def __init__(self, json_file):
         with open(json_file, "r") as fid:
             self.__dict__ = json.loads(fid.read())
 
 def benchmark_getLine(fin, numlines, path):
-    """
-    compare execution time of getLine functions
+    '''compare execution time of getLine functions
 
     args:
         fin (str): path to the input file
         numlines (int): the total number of line of fin
         path (str): where to store timing results
-    """
+    '''
     fname, fext = os.path.splitext(fin)
 
     # fin with line number will be generated in the same path as fin
