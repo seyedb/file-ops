@@ -1,8 +1,5 @@
 # these tests are designed for pytest framework
 
-import sys
-sys.path.insert(1, '/Users/HosseinBani/Projects/file-ops-clean/src/fileOps')
-
 import fileOps as fo
 
 import pytest
