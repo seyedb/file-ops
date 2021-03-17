@@ -1,5 +1,8 @@
 # these tests are designed for pytest framework
 
+import sys
+sys.path.insert(1, '/Users/HosseinBani/Projects/file-ops-clean/src/fileOps')
+
 import fileOps as fo
 
 import pytest
@@ -36,7 +39,8 @@ def test_addLineNumber():
     assert ln == lnumber
 
 def test_addLineNumber_inplace():
-    fin = "../data/shakespeare.txt"
+    # for this test do the following copy first to have the required data:
+    # > cp ../data/shakespeare.txt ../data/shakespeare-wln-inplace.txt
     fin_wln_inplace = "../data/shakespeare-wln-inplace.txt"
     numlines = 4122
 
