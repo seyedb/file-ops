@@ -129,7 +129,7 @@ def findPattern(fin, pattern):
     '''
     matchlist = []
     with open(fin, "r") as fid:
-        for i, line in enumerate(fid, start=1):
+        for _, line in enumerate(fid, start=1):
             matches = re.findall(pattern, line)
             if len(matches) > 0:
                 matchlist.extend(matches)
@@ -150,7 +150,7 @@ def matchToFile(fin, pattern, fout):
     '''
     fout_id = open(fout, "w")
     with open(fin, "r") as fin_id:
-        for i, line in enumerate(fin_id, start=1):
+        for _, line in enumerate(fin_id, start=1):
             matches = re.findall(pattern, line)
             if len(matches) > 0:
                 fout_id.write(line)
