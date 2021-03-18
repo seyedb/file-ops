@@ -13,7 +13,7 @@ from json import loads
 import timeit
 
 def getLine(fname, lnumber):
-    '''Function to jump to a line number in a file and read a line.
+    '''Jumps to a line number in a file and reads a line.
 
     args: 
         fname (str): path to the input file
@@ -62,7 +62,7 @@ def addLineNumber_inplace(fins):
         sys.stdout.write('%d %s' % (fileinput.filelineno(), line))
 
 def getLine_binarysearch(fname, lnumber):
-    '''Function to jump to a line number in a file and read that line. 
+    '''Jumps to a line number in a file and reads that line. 
     NOTE: uses a binary search approach to find the line number, therefore, the file needs to have line numbers
           use addLineNumber or addLineNumber_inplace to create such a file
 
@@ -119,7 +119,7 @@ def getLine_binarysearch(fname, lnumber):
     return sol
 
 def findPattern(fin, pattern):
-    '''Function to read a large file and find lines that match some criteria.
+    '''Reads a large file and finds lines that match some criteria.
 
     args:
         fin (str): path to the input file
@@ -139,7 +139,7 @@ def findPattern(fin, pattern):
     return matchlist
 
 def matchToFile(fin, pattern, fout):
-    '''Function to find lines that match some criteria and write them to another file.
+    '''Finds lines that match some criteria and writes them to another file.
 
     args:
         fin (str): path to the input file
@@ -160,7 +160,7 @@ def matchToFile(fin, pattern, fout):
     fout_id.close()
 
 def jsonToDict(json_file):
-    '''Function to read in a JSON file and convert it into a dictionary.
+    '''Reads in a JSON file and converts it into a dictionary.
 
     args:
         json_file (str): path to the input file
