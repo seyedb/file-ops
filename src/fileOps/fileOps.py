@@ -123,7 +123,7 @@ def findPattern(fin, pattern):
 
     args:
         fin (str): path to the input file
-        pattern (str): regex pattern to be matched (ex: r'<title.*>(.*)<\/title>' to search fir titles in an xml file)
+        pattern (str): regex pattern to be matched (ex: r'<title.*>(.*)<\/title>' to search for titles in an xml file)
     returns:
         (list) list of matches found
     '''
@@ -143,7 +143,7 @@ def matchToFile(fin, pattern, fout):
 
     args:
         fin (str): path to the input file
-        pattern (str): regex pattern to be matched (ex: r'<title.*>(.*)<\/title>' to search fir titles in an xml file)
+        pattern (str): regex pattern to be matched (ex: r'<title.*>(.*)<\/title>' to search for titles in an xml file)
         fout (str): path to the output file
     returns:
         (file obj) fout filled in with all the lines from fin that contain a match of the pattern (regex)
@@ -165,7 +165,7 @@ def jsonToDict(json_file):
     args:
         json_file (str): path to the input file
     returns:
-        (dict) a dictionary containg the data from the input JSON file
+        (dict) a dictionary containing the data from the input JSON file
     '''
     with open(json_file, "r") as fid:
         dout = json.loads(fid.read())
