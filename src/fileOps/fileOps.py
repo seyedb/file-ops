@@ -148,14 +148,15 @@ def matchToFile(fin, pattern, fout):
         (file obj) fout filled in with all the lines from fin that contain a match of the pattern (regex)
     '''
     fout_id = open(fout, "w")
+    count = 0
     with open(fin, "r") as fin_id:
         for _, line in enumerate(fin_id, start=1):
             matches = re.findall(pattern, line)
             if len(matches) > 0:
                 fout_id.write(line)
-        else:
-            print("EOF reached.")
+                count += 1
 
+    if count == 0: print("EOF reached.")
     fout_id.close()
 
 def jsonToDict(json_file):
