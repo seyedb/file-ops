@@ -133,9 +133,8 @@ def findPattern(fin, pattern):
             matches = re.findall(pattern, line)
             if len(matches) > 0:
                 matchlist.extend(matches)
-        else:
-            print("EOF reached.")
 
+    if len(matchlist) == 0: print("EOF reached.")
     return matchlist
 
 def matchToFile(fin, pattern, fout):
