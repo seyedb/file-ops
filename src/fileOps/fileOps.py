@@ -21,17 +21,15 @@ def getLine(fname, lnumber):
     retunrs:
         (str) string containing the contents of the lnumber'th line 
     '''
-    if lnumber <= 0:
-        print("Error: Invalid line number!")
-        return
+    assert(lnumber > 0), "Error: Invalid line number!"
 
+    eof = True
     with open(fname, "r") as fid:
         for i, line in enumerate(fid, start=1):
             if i == lnumber:
                 return line
-                break
-        else:
-            print("Error: EOF reached!")
+
+    assert(not eof), "Error: EOF reached!"
 
 def addLineNumber(fin, fout):
     '''Reads a file and writes every line of the file to another file with line number added 
@@ -72,6 +70,8 @@ def getLine_binarysearch(fname, lnumber):
     retunrs:
         (str) string containing the contents of the lnumber'th line 
     '''
+    assert(lnumber > 0), "Error: Invalid line number!"
+
     fid = open(fname, "r", errors="replace")
 
     left = 0
