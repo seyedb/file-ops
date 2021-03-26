@@ -43,7 +43,7 @@ import timeit
 def getLine(fname, lnumber):
     &#34;&#34;&#34;Jumps to a line number in a file and reads a line.
 
-    Args: 
+    Args:
         fname (str): path to the input file.
         lnumber (int): line number.
     Returns:
@@ -62,7 +62,7 @@ def getLine(fname, lnumber):
 def addLineNumber(fin, fout):
     &#34;&#34;&#34;Reads a file and writes every line of the file to another file with line number added.
 
-    Args: 
+    Args:
         fin (str): path to the input file.
         fout (str): path to the output file.
     Returns:
@@ -89,8 +89,9 @@ def addLineNumber_inplace(fins):
 
 def getLine_binarysearch(fname, lnumber):
     &#34;&#34;&#34;Jumps to a line number in a file and reads that line. 
-    NOTE: uses a binary search approach to find the line number, therefore, the file needs to have line numbers
-          use addLineNumber or addLineNumber_inplace to create such a file.
+    NOTE: 
+        uses a binary search approach to find the line number, therefore, the file needs to have line numbers
+        use addLineNumber or addLineNumber_inplace to create such a file.
 
     Args:
         fname (str): path to the input file that has line numbers.
@@ -203,8 +204,7 @@ def jsonToDict(json_file):
 class loaded_json(object):
     &#34;&#34;&#34;Class containing data loaded from an input JSON file.
 
-    Usage:
-        jsondata = loaded_json(file_path)
+    Usage: jsondata = loaded_json(file_path)
 
     TODO: make the class iterable.
     &#34;&#34;&#34;
@@ -275,9 +275,13 @@ def benchmark_getLine(fin, numlines, path):
 </code></dt>
 <dd>
 <div class="desc"><p>Reads a file and writes every line of the file to another file with line number added.</p>
-<p>Args:
-fin (str): path to the input file.
-fout (str): path to the output file.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>fin</code></strong> :&ensp;<code>str</code></dt>
+<dd>path to the input file.</dd>
+<dt><strong><code>fout</code></strong> :&ensp;<code>str</code></dt>
+<dd>path to the output file.</dd>
+</dl>
 <h2 id="returns">Returns</h2>
 <p>(file obj) fout same as fin but with line numbers.</p></div>
 <details class="source">
@@ -287,7 +291,7 @@ fout (str): path to the output file.</p>
 <pre><code class="python">def addLineNumber(fin, fout):
     &#34;&#34;&#34;Reads a file and writes every line of the file to another file with line number added.
 
-    Args: 
+    Args:
         fin (str): path to the input file.
         fout (str): path to the output file.
     Returns:
@@ -442,9 +446,13 @@ fout (str): path to the output file.</p>
 </code></dt>
 <dd>
 <div class="desc"><p>Jumps to a line number in a file and reads a line.</p>
-<p>Args:
-fname (str): path to the input file.
-lnumber (int): line number.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>fname</code></strong> :&ensp;<code>str</code></dt>
+<dd>path to the input file.</dd>
+<dt><strong><code>lnumber</code></strong> :&ensp;<code>int</code></dt>
+<dd>line number.</dd>
+</dl>
 <h2 id="returns">Returns</h2>
 <p>(str) string containing the contents of the lnumber'th line.</p></div>
 <details class="source">
@@ -454,7 +462,7 @@ lnumber (int): line number.</p>
 <pre><code class="python">def getLine(fname, lnumber):
     &#34;&#34;&#34;Jumps to a line number in a file and reads a line.
 
-    Args: 
+    Args:
         fname (str): path to the input file.
         lnumber (int): line number.
     Returns:
@@ -476,7 +484,8 @@ lnumber (int): line number.</p>
 </code></dt>
 <dd>
 <div class="desc"><p>Jumps to a line number in a file and reads that line.
-NOTE: uses a binary search approach to find the line number, therefore, the file needs to have line numbers
+NOTE:
+uses a binary search approach to find the line number, therefore, the file needs to have line numbers
 use addLineNumber or addLineNumber_inplace to create such a file.</p>
 <h2 id="args">Args</h2>
 <dl>
@@ -493,8 +502,9 @@ use addLineNumber or addLineNumber_inplace to create such a file.</p>
 </summary>
 <pre><code class="python">def getLine_binarysearch(fname, lnumber):
     &#34;&#34;&#34;Jumps to a line number in a file and reads that line. 
-    NOTE: uses a binary search approach to find the line number, therefore, the file needs to have line numbers
-          use addLineNumber or addLineNumber_inplace to create such a file.
+    NOTE: 
+        uses a binary search approach to find the line number, therefore, the file needs to have line numbers
+        use addLineNumber or addLineNumber_inplace to create such a file.
 
     Args:
         fname (str): path to the input file that has line numbers.
@@ -635,8 +645,7 @@ use addLineNumber or addLineNumber_inplace to create such a file.</p>
 </code></dt>
 <dd>
 <div class="desc"><p>Class containing data loaded from an input JSON file.</p>
-<h2 id="usage">Usage</h2>
-<p>jsondata = loaded_json(file_path)</p>
+<p>Usage: jsondata = loaded_json(file_path)</p>
 <p>TODO: make the class iterable.</p></div>
 <details class="source">
 <summary>
@@ -645,8 +654,7 @@ use addLineNumber or addLineNumber_inplace to create such a file.</p>
 <pre><code class="python">class loaded_json(object):
     &#34;&#34;&#34;Class containing data loaded from an input JSON file.
 
-    Usage:
-        jsondata = loaded_json(file_path)
+    Usage: jsondata = loaded_json(file_path)
 
     TODO: make the class iterable.
     &#34;&#34;&#34;

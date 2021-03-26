@@ -15,7 +15,7 @@ import timeit
 def getLine(fname, lnumber):
     """Jumps to a line number in a file and reads a line.
 
-    Args: 
+    Args:
         fname (str): path to the input file.
         lnumber (int): line number.
     Returns:
@@ -34,7 +34,7 @@ def getLine(fname, lnumber):
 def addLineNumber(fin, fout):
     """Reads a file and writes every line of the file to another file with line number added.
 
-    Args: 
+    Args:
         fin (str): path to the input file.
         fout (str): path to the output file.
     Returns:
@@ -61,8 +61,9 @@ def addLineNumber_inplace(fins):
 
 def getLine_binarysearch(fname, lnumber):
     """Jumps to a line number in a file and reads that line. 
-    NOTE: uses a binary search approach to find the line number, therefore, the file needs to have line numbers
-          use addLineNumber or addLineNumber_inplace to create such a file.
+    NOTE: 
+        uses a binary search approach to find the line number, therefore, the file needs to have line numbers
+        use addLineNumber or addLineNumber_inplace to create such a file.
 
     Args:
         fname (str): path to the input file that has line numbers.
@@ -175,8 +176,7 @@ def jsonToDict(json_file):
 class loaded_json(object):
     """Class containing data loaded from an input JSON file.
 
-    Usage:
-        jsondata = loaded_json(file_path)
+    Usage: jsondata = loaded_json(file_path)
 
     TODO: make the class iterable.
     """
