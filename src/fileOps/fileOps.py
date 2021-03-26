@@ -15,11 +15,11 @@ import timeit
 def getLine(fname, lnumber):
     """Jumps to a line number in a file and reads a line.
 
-    args: 
-        fname (str): path to the input file
-        lnumber (int): line number
-    retunrs:
-        (str) string containing the contents of the lnumber'th line 
+    Args: 
+        fname (str): path to the input file.
+        lnumber (int): line number.
+    Returns:
+        (str) string containing the contents of the lnumber'th line.
     """
     assert(lnumber > 0), "Error: Invalid line number!"
 
@@ -32,13 +32,13 @@ def getLine(fname, lnumber):
     assert(not eof), "Error: EOF reached!"
 
 def addLineNumber(fin, fout):
-    """Reads a file and writes every line of the file to another file with line number added 
+    """Reads a file and writes every line of the file to another file with line number added.
 
-    args: 
-        fin (str): path to the input file
-        fout (str): path to the output file
-    returns:
-        (file obj) fout same as fin but with line numbers
+    Args: 
+        fin (str): path to the input file.
+        fout (str): path to the output file.
+    Returns:
+        (file obj) fout same as fin but with line numbers.
     """
     fout_id = open(fout, 'w')
 
@@ -49,12 +49,12 @@ def addLineNumber(fin, fout):
     fout_id.close()
 
 def addLineNumber_inplace(fins):
-    """Reads a collection of files and adds line numbers to every line of those files in place
+    """Reads a collection of files and adds line numbers to every line of those files in place.
 
-    args:
-        fins (tuple of str): paths to the input files to be edited
-    returns:
-        (file objs) every file in fins with line numbers added to their lines
+    Args:
+        fins (tuple of str): paths to the input files to be edited.
+    Returns:
+        (file objs) every file in fins with line numbers added to their lines.
     """
     for line in fileinput.input(files=fins, inplace=True):
         sys.stdout.write('%d %s' % (fileinput.filelineno(), line))
@@ -62,13 +62,13 @@ def addLineNumber_inplace(fins):
 def getLine_binarysearch(fname, lnumber):
     """Jumps to a line number in a file and reads that line. 
     NOTE: uses a binary search approach to find the line number, therefore, the file needs to have line numbers
-          use addLineNumber or addLineNumber_inplace to create such a file
+          use addLineNumber or addLineNumber_inplace to create such a file.
 
-    args:
-        fname (str): path to the input file that has line numbers
-        lnumber (int): line number
-    retunrs:
-        (str) string containing the contents of the lnumber'th line 
+    Args:
+        fname (str): path to the input file that has line numbers.
+        lnumber (int): line number.
+    Returns:
+        (str) string containing the contents of the lnumber'th line.
     """
     assert(lnumber > 0), "Error: Invalid line number!"
 
@@ -121,11 +121,11 @@ def getLine_binarysearch(fname, lnumber):
 def findPattern(fin, pattern):
     """Reads a large file and finds lines that match some criteria.
 
-    args:
-        fin (str): path to the input file
-        pattern (str): regex pattern to be matched (ex: r'<title.*>(.*)<\/title>' to search for titles in an xml file)
-    returns:
-        (list) list of matches found
+    Args:
+        fin (str): path to the input file.
+        pattern (str): regex pattern to be matched (ex: r'<title.*>(.*)<\/title>' to search for titles in an xml file).
+    Returns:
+        (list) list of matches found.
     """
     matchlist = []
     with open(fin, 'r') as fid:
@@ -140,12 +140,12 @@ def findPattern(fin, pattern):
 def matchToFile(fin, pattern, fout):
     """Finds lines that match some criteria and writes them to another file.
 
-    args:
-        fin (str): path to the input file
-        pattern (str): regex pattern to be matched (ex: r'<title.*>(.*)<\/title>' to search for titles in an xml file)
-        fout (str): path to the output file
-    returns:
-        (file obj) fout filled in with all the lines from fin that contain a match of the pattern (regex)
+    Args:
+        fin (str): path to the input file.
+        pattern (str): regex pattern to be matched (ex: r'<title.*>(.*)<\/title>' to search for titles in an xml file).
+        fout (str): path to the output file.
+    Returns:
+        (file obj) fout filled in with all the lines from fin that contain a match of the pattern (regex).
     """
     fout_id = open(fout, 'w')
     count = 0
@@ -162,10 +162,10 @@ def matchToFile(fin, pattern, fout):
 def jsonToDict(json_file):
     """Reads in a JSON file and converts it into a dictionary.
 
-    args:
-        json_file (str): path to the input file
-    returns:
-        (dict) a dictionary containing the data from the input JSON file
+    Args:
+        json_file (str): path to the input file.
+    Returns:
+        (dict) a dictionary containing the data from the input JSON file.
     """
     with open(json_file, 'r') as fid:
         dout = json.loads(fid.read())
@@ -175,7 +175,7 @@ def jsonToDict(json_file):
 class loaded_json(object):
     """Class containing data loaded from an input JSON file.
 
-    usage:
+    Usage:
         jsondata = loaded_json(file_path)
 
     TODO: make the class iterable.
@@ -185,12 +185,12 @@ class loaded_json(object):
             self.__dict__ = json.loads(fid.read())
 
 def benchmark_getLine(fin, numlines, path):
-    """compare execution time of getLine functions
+    """Compare execution time of getLine functions.
 
-    args:
-        fin (str): path to the input file
-        numlines (int): the total number of line of fin
-        path (str): where to store timing results
+    Args:
+        fin (str): path to the input file.
+        numlines (int): the total number of line of fin.
+        path (str): where to store timing results.
     """
     fname, fext = os.path.splitext(fin)
 
