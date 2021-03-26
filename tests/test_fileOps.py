@@ -1,9 +1,6 @@
 # these tests are designed for pytest framework
-
-import fileOps as fo
-
 import pytest
-
+import fileOps as fo
 import numpy as np
 from collections import Counter
 import filecmp
@@ -14,16 +11,16 @@ def test_getLine():
     refline = "JAQUES\tAll the world's a stage,\n"
     reference = "All the world's a stage,"
 
-    fname = "../data/shakespeare.txt"
+    fname = '../data/shakespeare.txt'
     lnumber = 1660
     line = fo.getLine(fname, lnumber)
 
-    result = line.partition("\t")[2].rstrip()
+    result = line.partition('\t')[2].rstrip()
     assert result == reference
 
 def test_addLineNumber():
-    fin = "../data/shakespeare.txt"
-    fin_wln = "../data/shakespeare-wln.txt"
+    fin = '../data/shakespeare.txt'
+    fin_wln = '../data/shakespeare-wln.txt'
     numlines = 4122 # total number of lines
 
     fo.addLineNumber(fin, fin_wln)
@@ -38,7 +35,7 @@ def test_addLineNumber():
 def test_addLineNumber_inplace():
     # for this test do the following copy first to have the required data:
     # > cp ../data/shakespeare.txt ../data/shakespeare-wln-inplace.txt
-    fin_wln_inplace = "../data/shakespeare-wln-inplace.txt"
+    fin_wln_inplace = '../data/shakespeare-wln-inplace.txt'
     numlines = 4122
 
     fo.addLineNumber_inplace(fin_wln_inplace)
@@ -54,15 +51,15 @@ def test_getLine_binarysearch():
     refline = "JAQUES\tAll the world's a stage,\n"
     reference = "All the world's a stage,"
 
-    fname = "../data/shakespeare-wln.txt"
+    fname = '../data/shakespeare-wln.txt'
     lnumber = 1660
     line = fo.getLine_binarysearch(fname, lnumber)
 
-    result = line.partition("\t")[2].rstrip()
+    result = line.partition('\t')[2].rstrip()
     assert result == reference
 
 def test_findPattern():
-    fin = "../data/shakespeare.txt"
+    fin = '../data/shakespeare.txt'
     pattern = "^ACT.*"
 
     matchlist = fo.findPattern(fin, pattern)
@@ -70,12 +67,12 @@ def test_findPattern():
     assert Counter(matchlist) == reference
 
 def test_matchToFile():
-    fin = "../data/shakespeare.txt"
-    fout = "../data/shakespeare-match.txt"
+    fin = '../data/shakespeare.txt'
+    fout = '../data/shakespeare-match.txt'
 
     # fref is created via:
     # > grep "ACT" ../data/shakespeare.txt > ../data/shakespeare-matchref.txt
-    fref = "../data/shakespeare-matchref.txt"
+    fref = '../data/shakespeare-matchref.txt'
 
     pattern = "^ACT.*"
 
@@ -83,15 +80,15 @@ def test_matchToFile():
     assert filecmp.cmp(fout, fref)
 
 def test_jsonToDict():
-    json_file = "../data/exoplanets.json"
+    json_file = '../data/exoplanets.json'
     exoplanets = fo.jsonToDict(json_file)
 
     # reference dictionary has been stored in a binary format using:
-#    with open("../data/exoplanets.pkl", "wb") as fdict:
+#    with open('../data/exoplanets.pkl', 'wb') as fdict:
 #        pickle.dump(exoplanets, fdict, pickle.HIGHEST_PROTOCOL)
 
     refdict = {}
-    with open("../data/exoplanets.pkl", "rb") as fdict:
+    with open('../data/exoplanets.pkl', 'rb') as fdict:
         refdict = pickle.load(fdict)
 
     diff = deepdiff.DeepDiff(exoplanets, refdict)
@@ -100,10 +97,10 @@ def test_jsonToDict():
 
 def test_init_loaded_json():
     refdict = {}
-    with open("../data/exoplanets.pkl", "rb") as fdict:
+    with open('../data/exoplanets.pkl', 'rb') as fdict:
         refdict = pickle.load(fdict)
 
-    jsondata = fo.loaded_json("../data/exoplanets.json")
+    jsondata = fo.loaded_json('../data/exoplanets.json')
 
     diff = deepdiff.DeepDiff(jsondata.__dict__, refdict)
     assert not diff
