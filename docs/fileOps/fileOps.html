@@ -26,19 +26,15 @@
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">#
-import os
+<pre><code class="python">import os
 import sys
 import fileinput
-import numpy as np
 
 import re
 from re import findall
 
 import json
 from json import loads
-
-import timeit
 
 def getLine(fname, lnumber):
     &#34;&#34;&#34;Jumps to a line number in a file and reads a line.
@@ -210,57 +206,7 @@ class loaded_json(object):
     &#34;&#34;&#34;
     def __init__(self, json_file):
         with open(json_file, &#39;r&#39;) as fid:
-            self.__dict__ = json.loads(fid.read())
-
-def benchmark_getLine(fin, numlines, path):
-    &#34;&#34;&#34;Compare execution time of getLine functions.
-
-    Args:
-        fin (str): path to the input file.
-        numlines (int): the total number of line of fin.
-        path (str): where to store timing results.
-    &#34;&#34;&#34;
-    fname, fext = os.path.splitext(fin)
-
-    # fin with line number will be generated in the same path as fin
-    fin_wln = &#39;{}{}{}&#39;.format(fname,&#39;_wln&#39;,fext)
-    fin_wln_inplace = &#39;{}{}{}&#39;.format(fname,&#39;-inplace&#39;,fext)
-
-    # add line numbers, compare two functions wrt timing 
-    starttime = timeit.default_timer()
-    addLineNumber(fin, fin_wln)
-    print(&#34;addLineNumber :&#34;, timeit.default_timer() - starttime)
-
-    starttime = timeit.default_timer()
-    addLineNumber_inplace(fin_wln_inplace)
-    print(&#34;addLineNumber_inplace  :&#34;, timeit.default_timer() - starttime)
-
-    # generate sz distinct random integers between 1 and numlines as line numbers to be read
-    sz = 1000 
-    rng = np.random.default_rng()
-    lnumbers = rng.choice(numlines, size=sz, replace=False)
-    with open(&#39;../data/lnumbers.txt&#39;, &#39;w&#39;) as flnums:
-        print(&#39;\n&#39;.join(map(str, lnumbers)), file=flnums)
-
-    # timing for getLine function
-    getline_time=[]
-    for ln in lnumbers:
-        starttime = timeit.default_timer()
-        line = getLine(fin, ln)
-        getline_time.append(timeit.default_timer() - starttime)
-
-    with open(path + &#39;/getline_time.txt&#39;, &#39;w&#39;) as fgetlinetime:
-        print(&#39;\n&#39;.join(map(str, getline_time)), file=fgetlinetime)
-
-    # timing for getLine_binarysearch function
-    getline_bs_time=[]
-    for ln in lnumbers:
-        starttime = timeit.default_timer()
-        line = getLine_binarysearch(fin_wln, ln)
-        getline_bs_time.append(timeit.default_timer() - starttime)
-
-    with open(path + &#39;/getline_binsrch_time.txt&#39;, &#39;w&#39;) as fgetlinebstime:
-        print(&#39;\n&#39;.join(map(str, getline_bs_time)), file=fgetlinebstime)</code></pre>
+            self.__dict__ = json.loads(fid.read())</code></pre>
 </details>
 </section>
 <section>
@@ -332,75 +278,6 @@ def benchmark_getLine(fin, numlines, path):
     &#34;&#34;&#34;
     for line in fileinput.input(files=fins, inplace=True):
         sys.stdout.write(&#39;%d %s&#39; % (fileinput.filelineno(), line))</code></pre>
-</details>
-</dd>
-<dt id="fileOps.fileOps.benchmark_getLine"><code class="name flex">
-<span>def <span class="ident">benchmark_getLine</span></span>(<span>fin, numlines, path)</span>
-</code></dt>
-<dd>
-<div class="desc"><p>Compare execution time of getLine functions.</p>
-<h2 id="args">Args</h2>
-<dl>
-<dt><strong><code>fin</code></strong> :&ensp;<code>str</code></dt>
-<dd>path to the input file.</dd>
-<dt><strong><code>numlines</code></strong> :&ensp;<code>int</code></dt>
-<dd>the total number of line of fin.</dd>
-<dt><strong><code>path</code></strong> :&ensp;<code>str</code></dt>
-<dd>where to store timing results.</dd>
-</dl></div>
-<details class="source">
-<summary>
-<span>Expand source code</span>
-</summary>
-<pre><code class="python">def benchmark_getLine(fin, numlines, path):
-    &#34;&#34;&#34;Compare execution time of getLine functions.
-
-    Args:
-        fin (str): path to the input file.
-        numlines (int): the total number of line of fin.
-        path (str): where to store timing results.
-    &#34;&#34;&#34;
-    fname, fext = os.path.splitext(fin)
-
-    # fin with line number will be generated in the same path as fin
-    fin_wln = &#39;{}{}{}&#39;.format(fname,&#39;_wln&#39;,fext)
-    fin_wln_inplace = &#39;{}{}{}&#39;.format(fname,&#39;-inplace&#39;,fext)
-
-    # add line numbers, compare two functions wrt timing 
-    starttime = timeit.default_timer()
-    addLineNumber(fin, fin_wln)
-    print(&#34;addLineNumber :&#34;, timeit.default_timer() - starttime)
-
-    starttime = timeit.default_timer()
-    addLineNumber_inplace(fin_wln_inplace)
-    print(&#34;addLineNumber_inplace  :&#34;, timeit.default_timer() - starttime)
-
-    # generate sz distinct random integers between 1 and numlines as line numbers to be read
-    sz = 1000 
-    rng = np.random.default_rng()
-    lnumbers = rng.choice(numlines, size=sz, replace=False)
-    with open(&#39;../data/lnumbers.txt&#39;, &#39;w&#39;) as flnums:
-        print(&#39;\n&#39;.join(map(str, lnumbers)), file=flnums)
-
-    # timing for getLine function
-    getline_time=[]
-    for ln in lnumbers:
-        starttime = timeit.default_timer()
-        line = getLine(fin, ln)
-        getline_time.append(timeit.default_timer() - starttime)
-
-    with open(path + &#39;/getline_time.txt&#39;, &#39;w&#39;) as fgetlinetime:
-        print(&#39;\n&#39;.join(map(str, getline_time)), file=fgetlinetime)
-
-    # timing for getLine_binarysearch function
-    getline_bs_time=[]
-    for ln in lnumbers:
-        starttime = timeit.default_timer()
-        line = getLine_binarysearch(fin_wln, ln)
-        getline_bs_time.append(timeit.default_timer() - starttime)
-
-    with open(path + &#39;/getline_binsrch_time.txt&#39;, &#39;w&#39;) as fgetlinebstime:
-        print(&#39;\n&#39;.join(map(str, getline_bs_time)), file=fgetlinebstime)</code></pre>
 </details>
 </dd>
 <dt id="fileOps.fileOps.findPattern"><code class="name flex">
@@ -681,7 +558,6 @@ use addLineNumber or addLineNumber_inplace to create such a file.</p>
 <ul class="">
 <li><code><a title="fileOps.fileOps.addLineNumber" href="#fileOps.fileOps.addLineNumber">addLineNumber</a></code></li>
 <li><code><a title="fileOps.fileOps.addLineNumber_inplace" href="#fileOps.fileOps.addLineNumber_inplace">addLineNumber_inplace</a></code></li>
-<li><code><a title="fileOps.fileOps.benchmark_getLine" href="#fileOps.fileOps.benchmark_getLine">benchmark_getLine</a></code></li>
 <li><code><a title="fileOps.fileOps.findPattern" href="#fileOps.fileOps.findPattern">findPattern</a></code></li>
 <li><code><a title="fileOps.fileOps.getLine" href="#fileOps.fileOps.getLine">getLine</a></code></li>
 <li><code><a title="fileOps.fileOps.getLine_binarysearch" href="#fileOps.fileOps.getLine_binarysearch">getLine_binarysearch</a></code></li>
