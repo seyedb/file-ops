@@ -58,6 +58,16 @@ def test_getLine_binarysearch():
     result = line.partition('\t')[2].rstrip()
     assert result == reference
 
+def test_getLine_binarysearch_1stline():
+    reference = "AS YOU LIKE IT"
+
+    fname = '../data/shakespeare-wln.txt'
+    lnumber = 1
+    line = fo.getLine_binarysearch(fname, lnumber)
+
+    result = line.partition('\t')[2].rstrip()
+    assert result == reference
+
 def test_findPattern():
     fin = '../data/shakespeare.txt'
     pattern = "^ACT.*"
