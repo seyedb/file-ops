@@ -1,5 +1,5 @@
 ## File Operations
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE) [![docs: latest](https://img.shields.io/badge/docs-latest-blue)](https://seyedb.github.io/file-ops/)
 
 Python scripts to perform the following file operations:
 * Jump to a line number in a file and read a line.
@@ -27,3 +27,6 @@ Use `./tools/timingplot.py` to generate an interactive plotly plot. The timing d
 **Test Data**<br />
 [`shakespeare.txt`](./data/shakespeare.txt) : *"As You Like It"* by William Shakespeare.<br />
 [`exoplanets.json`](./data/exoplanets.json) : list of potentially habitable exoplanets, source: [Wikipedia](https://en.wikipedia.org/wiki/List_of_potentially_habitable_exoplanets) (accessed: Mar. 2021), table converted into a `.json` file. 
+
+**Resources**<br />
+Documentation can be viewed at: [https://seyedb.github.io/file-ops/](https://seyedb.github.io/file-ops/)
