@@ -1,5 +1,5 @@
 ## File Operations
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE) [![docs: latest](https://img.shields.io/badge/docs-latest-blue)](https://seyedb.github.io/file-ops/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE) [![docs: latest](https://img.shields.io/badge/docs-latest-blue)](https://seyedb.github.io/file-ops/) [![coverage: 92%](https://img.shields.io/badge/coverage-92%25-green)](./tests/)
 
 Python scripts to perform the following file operations:
 * Jump to a line number in a file and read a line.
